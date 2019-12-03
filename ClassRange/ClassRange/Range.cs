@@ -15,10 +15,28 @@ namespace ClassRange
 
         public bool Match(string text)
         {
-            return IsInRange(start, end, text);
+            return IsTextInRange(start, end, text);
         }
 
-        private bool IsInRange(char start, char end, string text)
+        internal bool IsTextInRange(char start, char end, string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                return false;
+            }
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (!IsInRange(start, end, text[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        internal bool IsInRange(char start, char end, char text)
         {
             return Convert.ToChar(text) >= start && Convert.ToChar(text) <= end;
         }

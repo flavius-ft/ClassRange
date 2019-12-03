@@ -7,25 +7,25 @@ namespace ClassRange
         [Fact]
         public void ChecIfTextMatch()
         {
-            Range match = new Range('a', 'z');
+            Range range = new Range('a', 'z');
 
-            Assert.True(match.Match("b"));
+            Assert.True(range.Match("b"));
         }
 
         [Fact]
         public void ChecIfCharIsInRange()
         {
-            Range match = new Range('c', 'z');
+            Range range = new Range('c', 'z');
 
-            Assert.False(match.Match("b"));
+            Assert.False(range.Match("b"));
         }
 
         [Fact]
         public void ChecIfCharsFromATextAreInRange()
         {
-            Range match = new Range('c', 'z');
+            Range range = new Range('c', 'z');
 
-            Assert.False(match.Match("def"));
+            Assert.True(range.Match("def"));
         }
     }
 }
