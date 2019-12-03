@@ -27,5 +27,13 @@ namespace ClassRange
 
             Assert.True(range.Match("def"));
         }
+
+        [Fact]
+        public void LookIfTextMatchWithGivenRangeUsingAStringWhoIsNotInRange()
+        {
+            Range range = new Range('e', 'z');
+
+            Assert.False(range.Match("def"));
+        }
     }
 }
