@@ -35,5 +35,13 @@ namespace ClassRange
 
             Assert.False(range.Match("1ef"));
         }
+
+        [Fact]
+        public void LookIfTextMatchWithGivenRangeUsingAnEmptyString()
+        {
+            Range range = new Range('e', 'z');
+
+            Assert.False(range.Match(""));
+        }
     }
 }
