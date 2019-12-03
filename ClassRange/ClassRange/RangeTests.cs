@@ -33,7 +33,7 @@ namespace ClassRange
         {
             Range range = new Range('e', 'z');
 
-            Assert.False(range.Match("def"));
+            Assert.False(range.Match("1ef"));
         }
     }
 }
