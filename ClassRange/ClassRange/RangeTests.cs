@@ -11,5 +11,13 @@ namespace ClassRange
 
             Assert.True(match.Match("b"));
         }
+
+        [Fact]
+        public void ChecIfCharIsInRange()
+        {
+            Range match = new Range('c', 'z');
+
+            Assert.False(match.Match("b"));
+        }
     }
 }
