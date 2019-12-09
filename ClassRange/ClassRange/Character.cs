@@ -1,6 +1,6 @@
 ﻿namespace ClassRange
 {
-    class Character
+    class Character : IPattern
     {
         readonly char pattern;
 
@@ -11,12 +11,7 @@
 
         public bool Match(string text)
         {
-            if (string.IsNullOrEmpty(text))
-            {
-                return false;
-            }
-
-            return text[0] == pattern;
+            return !string.IsNullOrEmpty(text) && text[0] == pattern;
         }
     }
 }
