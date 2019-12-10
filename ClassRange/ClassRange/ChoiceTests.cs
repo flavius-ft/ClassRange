@@ -7,12 +7,9 @@ namespace ClassRange
         [Fact]
         public void CheckDigits()
         {
-            var digits = new IPattern[]
-            {
-                new Character('0'), new Range('1', '9')
-            };
+            var digits = new Choice(new Character('0'), new Range('1', '9'));
 
-            Assert.True(digits.)
+            Assert.True(digits.Match("0159"));
         }
     }
 }
