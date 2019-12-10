@@ -5,10 +5,8 @@
         readonly Character singleChar;
         readonly Range givenRange;
 
-        public Choice(Character character, Range range)
+        public Choice(params IPattern[] paterns)
         {
-            this.singleChar = character;
-            this.givenRange = range;
         }
 
         public bool Match(string text)
