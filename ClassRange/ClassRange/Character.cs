@@ -1,6 +1,6 @@
 ﻿namespace ClassRange
 {
-    class Character
+    class Character : IPattern
     {
         readonly char pattern;
 

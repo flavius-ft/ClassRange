@@ -2,16 +2,24 @@
 {
     class Choice
     {
-        readonly Character singleChar;
-        readonly Range givenRange;
+        readonly IPattern[] patterns;
 
-        public Choice(params IPattern[] paterns)
+        public Choice(params IPattern[] patterns)
         {
+            this.patterns = patterns;
         }
 
         public bool Match(string text)
         {
-            return true;
+            foreach (var patern in patterns)
+            {
+                if (patern.Match(text))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
