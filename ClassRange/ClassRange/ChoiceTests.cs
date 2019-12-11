@@ -55,5 +55,17 @@ namespace ClassRange
 
             Assert.False(digit.Match(nullString));
         }
+
+        [Fact]
+        public void CheckHexaDigits()
+        {
+            var digit = new Choice(
+                new Character('0'),
+                new Range('1', '9'),
+                new Range('a', 'f'),
+                new Range('A', 'F'));
+
+            Assert.True(digit.Match("a9"));
+        }
     }
 }
