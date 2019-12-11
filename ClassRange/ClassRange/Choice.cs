@@ -2,7 +2,7 @@
 {
     class Choice
     {
-        readonly IPattern[] patterns;
+        private readonly IPattern[] patterns;
 
         public Choice(params IPattern[] patterns)
         {
