@@ -17,5 +17,10 @@ namespace ClassRange
         {
             return !string.IsNullOrEmpty(text) && text[0] >= start && text[0] <= end;
         }
+
+        IMatch IPattern.Match(string text)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
