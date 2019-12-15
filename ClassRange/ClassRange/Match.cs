@@ -2,9 +2,9 @@
 {
     class Match : IMatch
     {
-        public string RemainingText()
+        public string RemainingText(string text)
         {
-            throw new System.NotImplementedException();
+            return text.Substring(1);
         }
 
         public bool Success()

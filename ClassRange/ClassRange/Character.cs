@@ -13,5 +13,10 @@
         {
             return !string.IsNullOrEmpty(text) && text[0] == pattern;
         }
+
+        IMatch IPattern.Match(string text)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
