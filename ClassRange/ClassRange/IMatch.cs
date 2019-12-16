@@ -4,6 +4,6 @@
     {
         bool Success();
 
-        string RemainingText(string text);
+        string RemainingText();
     }
 }

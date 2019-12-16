@@ -13,7 +13,7 @@
         {
             foreach (var patern in patterns)
             {
-                if (patern.Match(text))
+                if (patern.Match(text).Success())
                 {
                     return true;
                 }

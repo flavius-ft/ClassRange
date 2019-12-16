@@ -7,9 +7,9 @@
             return text.Substring(1);
         }
 
-        public bool Success()
+        public bool Success(Character c, string text)
         {
-            throw new System.NotImplementedException();
+            return text[0].Equals(c);
         }
     }
 }
