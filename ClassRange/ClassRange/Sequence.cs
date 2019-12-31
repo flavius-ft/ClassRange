@@ -1,4 +1,6 @@
-﻿namespace ClassRange
+﻿using System;
+
+namespace ClassRange
 {
     class Sequence : IPattern
     {
@@ -11,13 +13,7 @@
 
         public IMatch Match(string text)
         {
-            foreach (var patern in patterns)
-            {
-                if (patern.Match(text).Success())
-                {
-                    return true;
-                }
-            }
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace ClassRange
+﻿using System;
+
+namespace ClassRange
 {
     class Character : IPattern
     {
@@ -16,7 +18,7 @@
 
         IMatch IPattern.Match(string text)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

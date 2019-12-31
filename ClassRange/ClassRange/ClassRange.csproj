@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <CodeAnalysisRuleSet></CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <CodeAnalysisRuleSet>juniormind.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 

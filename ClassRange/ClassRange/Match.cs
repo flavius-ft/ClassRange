@@ -1,15 +1,26 @@
-﻿namespace ClassRange
+﻿using System;
+
+namespace ClassRange
 {
     class Match : IMatch
     {
-        public string RemainingText(string text)
+        private readonly IPattern patern;
+        private readonly string text;
+
+        public Match(IPattern patern, string text)
+        {
+            this.patern = patern;
+            this.text = text;
+        }
+
+        public string RemainingText()
         {
             return text.Substring(1);
         }
 
-        public bool Success(Character c, string text)
+        public bool Success()
         {
-            return text[0].Equals(c);
+            throw new NotImplementedException();
         }
     }
 }
