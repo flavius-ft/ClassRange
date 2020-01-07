@@ -13,14 +13,10 @@ namespace ClassRange
             this.end = endText;
         }
 
-        public bool Match(string text)
-        {
-            return !string.IsNullOrEmpty(text) && text[0] >= start && text[0] <= end;
-        }
-
         IMatch IPattern.Match(string text)
         {
-            throw new NotImplementedException();
+            return !string.IsNullOrEmpty(text) && text[0] >= start && text[0] <= end ?
+                   new Match(true, text.Substring(1)) : new Match(false, text);
         }
     }
 }

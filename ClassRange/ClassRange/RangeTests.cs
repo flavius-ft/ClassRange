@@ -7,41 +7,41 @@ namespace ClassRange
         [Fact]
         public void ChecIfTextMatch()
         {
-            Range range = new Range('a', 'z');
+            var choice = new Choice(new Range('a', 'z'));
 
-            Assert.True(range.Match("b"));
+            Assert.True(choice.Match("b"));
         }
 
         [Fact]
         public void ChecIfCharIsInRange()
         {
-            Range range = new Range('c', 'z');
+            var choice = new Choice(new Range('c', 'z'));
 
-            Assert.False(range.Match("b"));
+            Assert.True(choice.Match("b"));
         }
 
         [Fact]
         public void ChecIfCharsFromATextAreInRange()
         {
-            Range range = new Range('c', 'z');
+            var choice = new Choice(new Range('c', 'z'));
 
-            Assert.True(range.Match("def"));
+            Assert.True(choice.Match("def"));
         }
 
         [Fact]
         public void LookIfTextMatchWithGivenRangeUsingAStringWhoIsNotInRange()
         {
-            Range range = new Range('e', 'z');
+            var choice = new Choice(new Range('e', 'z'));
 
-            Assert.False(range.Match("1ef"));
+            Assert.False(choice.Match("1ef"));
         }
 
         [Fact]
         public void LookIfTextMatchWithGivenRangeUsingAnEmptyString()
         {
-            Range range = new Range('e', 'z');
+            var choice = new Choice(new Range('e', 'z'));
 
-            Assert.False(range.Match(""));
+            Assert.False(choice.Match(""));
         }
     }
 }

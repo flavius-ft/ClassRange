@@ -1,31 +1,24 @@
-﻿using System;
-
-namespace ClassRange
+﻿namespace ClassRange
 {
     class Match : IMatch
     {
-        private readonly IPattern patern;
-        private readonly string text;
+        private readonly bool success;
+        private readonly string remainingText;
 
-        public Match(IPattern patern, string text)
+        public Match(bool success, string remainingText)
         {
-            this.patern = patern;
-            this.text = text;
-        }
-
-        public Match(string text)
-        {
-            this.text = text;
+            this.success = success;
+            this.remainingText = remainingText;
         }
 
         public string RemainingText()
         {
-            return text.Substring(1);
+            return remainingText;
         }
 
         public bool Success()
         {
-            throw new NotImplementedException();
+            return success;
         }
     }
 }

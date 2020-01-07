@@ -11,14 +11,10 @@ namespace ClassRange
             this.pattern = pattern;
         }
 
-        public bool Match(string text)
+        public IMatch Match(string text)
         {
-            return !string.IsNullOrEmpty(text) && text[0] == pattern;
-        }
-
-        IMatch IPattern.Match(string text)
-        {
-            throw new NotImplementedException();
+            return !string.IsNullOrEmpty(text) && text[0] == pattern ?
+                new Match(true, text.Substring(1)) : new Match(false, text);
         }
     }
 }
