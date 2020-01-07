@@ -13,6 +13,11 @@ namespace ClassRange
             this.text = text;
         }
 
+        public Match(string text)
+        {
+            this.text = text;
+        }
+
         public string RemainingText()
         {
             return text.Substring(1);
