@@ -17,7 +17,7 @@ namespace ClassRange
         {
             var choice = new Choice(new Range('c', 'z'));
 
-            Assert.True(choice.Match("b"));
+            Assert.False(choice.Match("b"));
         }
 
         [Fact]
