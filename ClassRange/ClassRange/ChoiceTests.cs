@@ -11,7 +11,7 @@ namespace ClassRange
                 new Character('0'),
                 new Range('1', '9'));
 
-            Assert.True(digit.Match("0159"));
+            Assert.True(digit.Match("0159").Success());
         }
 
         [Fact]
@@ -21,7 +21,7 @@ namespace ClassRange
                 new Character('0'),
                 new Range('1', '9'));
 
-            Assert.True(digit.Match("159"));
+            Assert.True(digit.Match("159").Success());
         }
 
         [Fact]
@@ -31,7 +31,7 @@ namespace ClassRange
                 new Character('0'),
                 new Range('1', '9'));
 
-            Assert.False(digit.Match("a9"));
+            Assert.False(digit.Match("a9").Success());
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace ClassRange
                 new Character('0'),
                 new Range('1', '9'));
 
-            Assert.False(digit.Match(""));
+            Assert.False(digit.Match("").Success());
         }
 
         [Fact]
@@ -53,7 +53,7 @@ namespace ClassRange
 
             const string nullString = null;
 
-            Assert.False(digit.Match(nullString));
+            Assert.False(digit.Match(nullString).Success());
         }
 
         [Fact]
@@ -65,7 +65,7 @@ namespace ClassRange
                 new Range('a', 'f'),
                 new Range('A', 'F'));
 
-            Assert.True(digit.Match("a9"));
+            Assert.True(digit.Match("a9").Success());
         }
     }
 }

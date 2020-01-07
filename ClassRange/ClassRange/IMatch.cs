@@ -1,6 +1,6 @@
 ﻿namespace ClassRange
 {
-    interface IMatch
+    public interface IMatch
     {
         bool Success();
 

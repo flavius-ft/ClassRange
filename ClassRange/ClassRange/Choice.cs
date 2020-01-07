@@ -1,6 +1,6 @@
 ﻿namespace ClassRange
 {
-    class Choice
+    class Choice : IPattern
     {
         private readonly IPattern[] patterns;
 
@@ -9,17 +9,17 @@
             this.patterns = patterns;
         }
 
-        public bool Match(string text)
+        public IMatch Match(string text)
         {
             foreach (var patern in patterns)
             {
                 if (patern.Match(text).Success())
                 {
-                    return true;
+                    return new Match(true, text.Substring(1));
                 }
             }
 
-            return false;
+            return new Match(false, text);
         }
     }
 }

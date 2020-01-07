@@ -9,7 +9,7 @@ namespace ClassRange
         {
             var choice = new Choice(new Range('a', 'z'));
 
-            Assert.True(choice.Match("b"));
+            Assert.True(choice.Match("b").Success());
         }
 
         [Fact]
@@ -17,7 +17,7 @@ namespace ClassRange
         {
             var choice = new Choice(new Range('c', 'z'));
 
-            Assert.False(choice.Match("b"));
+            Assert.False(choice.Match("b").Success());
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace ClassRange
         {
             var choice = new Choice(new Range('c', 'z'));
 
-            Assert.True(choice.Match("def"));
+            Assert.True(choice.Match("def").Success());
         }
 
         [Fact]
@@ -33,7 +33,7 @@ namespace ClassRange
         {
             var choice = new Choice(new Range('e', 'z'));
 
-            Assert.False(choice.Match("1ef"));
+            Assert.False(choice.Match("1ef").Success());
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace ClassRange
         {
             var choice = new Choice(new Range('e', 'z'));
 
-            Assert.False(choice.Match(""));
+            Assert.False(choice.Match("").Success());
         }
     }
 }

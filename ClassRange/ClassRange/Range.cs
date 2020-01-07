@@ -13,7 +13,7 @@ namespace ClassRange
             this.end = endText;
         }
 
-        IMatch IPattern.Match(string text)
+        public IMatch Match(string text)
         {
             return !string.IsNullOrEmpty(text) && text[0] >= start && text[0] <= end ?
                    new Match(true, text.Substring(1)) : new Match(false, text);
