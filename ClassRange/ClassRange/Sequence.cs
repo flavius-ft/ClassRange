@@ -12,13 +12,11 @@
         public IMatch Match(string text)
         {
             string copyText = text;
-            string finalText = string.Empty;
             foreach (var patern in patterns)
                 {
                     if (patern.Match(text).Success())
                     {
-                    finalText = patern.Match(text).RemainingText();
-                    text = text.Substring(1);
+                    text = patern.Match(text).RemainingText();
                     }
                     else
                     {
@@ -26,7 +24,7 @@
                     }
             }
 
-            return new Match(true, finalText);
+            return new Match(true, text);
         }
     }
 }
