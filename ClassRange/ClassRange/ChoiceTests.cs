@@ -69,24 +69,22 @@ namespace ClassRange
         }
 
         [Fact]
-        public void UseHexDigitsOnChoiceMethodReturnTrue()
+        public void UseHexDigitsOnChoiceMethodReturnRemainingText()
         {
             var hex = new Choice(
                new Range('0', '9'),
                new Range('a', 'f'),
                new Range('A', 'F'));
 
-            var hexSeq = new Sequence(
-                new Character('u'),
+            var hexSeq = new Choice(
                 new Sequence(
                     hex,
-                    hex,
+                    hex),
+                new Sequence(
                     hex,
                     hex));
 
-            var choice = new Choice(hexSeq);
-
-            Assert.Equal("", choice.Match("uabcd").RemainingText());
+            Assert.Equal("cdef", hexSeq.Match("abcdef").RemainingText());
         }
     }
 }

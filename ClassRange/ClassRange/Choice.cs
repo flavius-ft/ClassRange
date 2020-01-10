@@ -11,15 +11,18 @@
 
         public IMatch Match(string text)
         {
+            string copyText = text;
             foreach (var patern in patterns)
             {
-                if (patern.Match(text).Success())
+                var match = patern.Match(copyText);
+
+                if (match.Success())
                 {
-                    return new Match(true, text.Substring(1));
+                    return new Match(true, match.RemainingText());
                 }
             }
 
-            return new Match(false, text);
+            return new Match(false, copyText);
         }
     }
 }
