@@ -14,9 +14,11 @@
             string copyText = text;
             foreach (var patern in patterns)
                 {
-                    if (patern.Match(text).Success())
+                    var paternValue = patern.Match(text);
+
+                    if (paternValue.Success())
                     {
-                    text = patern.Match(text).RemainingText();
+                    text = paternValue.RemainingText();
                     }
                     else
                     {
