@@ -11,22 +11,19 @@
 
         public IMatch Match(string text)
         {
-            string copyText = text;
-            foreach (var patern in patterns)
-                {
-                    var paternValue = patern.Match(text);
+            IMatch match = new Match(true, text);
 
-                    if (paternValue.Success())
-                    {
-                    text = paternValue.RemainingText();
-                    }
-                    else
-                    {
-                    return new Match(false, copyText);
-                    }
+            foreach (var patern in patterns)
+            {
+                match = patern.Match(match.RemainingText());
+
+                if (!match.Success())
+                {
+                    return new Match(false, text);
+                }
             }
 
-            return new Match(true, text);
+            return match;
         }
     }
 }
