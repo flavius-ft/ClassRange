@@ -11,7 +11,7 @@
 
         public IMatch Match(string text)
         {
-            throw new System.NotImplementedException();
+            return accepted.Contains(text[0]) ? new Match(true, text.Substring(1)) : new Match(false, text);
         }
     }
 }
