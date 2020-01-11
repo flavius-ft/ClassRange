@@ -11,10 +11,9 @@
 
         public IMatch Match(string text)
         {
-            string copyText = text;
             foreach (var patern in patterns)
             {
-                var match = patern.Match(copyText);
+                var match = patern.Match(text);
 
                 if (match.Success())
                 {
@@ -22,7 +21,7 @@
                 }
             }
 
-            return new Match(false, copyText);
+            return new Match(false, text);
         }
     }
 }
