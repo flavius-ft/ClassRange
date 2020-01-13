@@ -11,16 +11,14 @@
 
         public IMatch Match(string text)
         {
-            bool manyCondition = true;
+            IMatch many = new Match(true, text);
 
-            while (manyCondition)
+            while (many.Success())
                 {
-                var many = pattern.Match(text);
-                manyCondition = many.Success();
-                text = many.RemainingText();
+                many = pattern.Match(many.RemainingText());
                 }
 
-            return new Match(true, text);
+            return new Match(true, many.RemainingText());
         }
     }
 }
