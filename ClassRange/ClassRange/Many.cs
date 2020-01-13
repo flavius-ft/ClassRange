@@ -2,7 +2,7 @@
 {
     class Many : IPattern
     {
-        readonly IPattern pattern;
+        private readonly IPattern pattern;
 
         public Many(IPattern pattern)
         {
@@ -11,21 +11,18 @@
 
         public IMatch Match(string text)
         {
-            if (pattern is Sequence)
-            {
-                var many = pattern.Match(text);
-                return new Match(true, many.RemainingText());
-            }
-
-            for (int i = 0; i < text.Length; i++)
-            {
-                if (!pattern.Match(text[i].ToString()).Success())
+                foreach (char singleChar in text)
                 {
-                    return new Match(true, text.Substring(i));
-                }
-            }
+                var many = pattern.Match(text);
+                if (!many.Success())
+                    {
+                        return new Match(true, many.RemainingText());
+                    }
 
-            return new Match(true, "");
+                text = many.RemainingText();
+                }
+
+                return new Match(true, "");
         }
     }
 }
