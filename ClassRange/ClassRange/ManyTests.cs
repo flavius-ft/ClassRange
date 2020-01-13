@@ -19,5 +19,16 @@ namespace ClassRange
 
             Assert.Equal("bc567", many.Match("1234bc567").RemainingText());
         }
+
+        [Fact]
+        public void CheckSequenceIntoAGivenTextReturnRemainingText()
+        {
+            var many = new Many(new Sequence(
+                new Character('u'),
+                new Range('0', '9'),
+                new Range('0', '9')));
+
+            Assert.Equal("bc567", many.Match("u12bc567").RemainingText());
+        }
     }
 }
