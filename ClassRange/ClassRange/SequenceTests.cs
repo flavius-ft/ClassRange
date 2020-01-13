@@ -138,25 +138,5 @@ namespace ClassRange
 
             Assert.Equal("", hexSeq.Match("").RemainingText());
         }
-
-        [Fact]
-        public void UseHexDigitsOnSequenceMethodWithNullStringReturnNullString()
-        {
-            const string isNull = null;
-            var hex = new Choice(
-               new Range('0', '9'),
-               new Range('a', 'f'),
-               new Range('A', 'F'));
-
-            var hexSeq = new Sequence(
-                new Character('u'),
-                new Sequence(
-                    hex,
-                    hex,
-                    hex,
-                    hex));
-
-            Assert.Equal(null, hexSeq.Match(isNull).RemainingText());
-        }
     }
 }
