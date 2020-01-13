@@ -11,18 +11,19 @@
 
         public IMatch Match(string text)
         {
-                foreach (char singleChar in text)
+            string copyOfText = text;
+            for (int i = 0; i < text.Length; i++)
                 {
-                var many = pattern.Match(text);
+                var many = pattern.Match(copyOfText);
                 if (!many.Success())
                     {
                         return new Match(true, many.RemainingText());
                     }
 
-                text = many.RemainingText();
+                copyOfText = many.RemainingText();
                 }
 
-                return new Match(true, "");
+            return new Match(true, "");
         }
     }
 }
