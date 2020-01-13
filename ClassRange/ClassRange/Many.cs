@@ -11,9 +11,13 @@
 
         public IMatch Match(string text)
         {
-            while (pattern.Match(text).Success())
+            bool manyCondition = true;
+
+            while (manyCondition)
                 {
-                text = pattern.Match(text).RemainingText();
+                var many = pattern.Match(text);
+                manyCondition = many.Success();
+                text = many.RemainingText();
                 }
 
             return new Match(true, text);
