@@ -14,9 +14,9 @@
             IMatch many = new Match(true, text);
 
             while (many.Success())
-                {
+            {
                 many = pattern.Match(many.RemainingText());
-                }
+            }
 
             return new Match(true, many.RemainingText());
         }
