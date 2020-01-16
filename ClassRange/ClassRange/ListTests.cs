@@ -30,5 +30,13 @@ namespace ClassRange
 
             Assert.Equal("", list.Match("1; 22;\n 333 \t; 22").RemainingText());
         }
+
+        [Fact]
+        public void UseListMethodWithEmptyStringReturnRemainingText()
+        {
+            var a = new List(new Range('0', '9'), new Character(','));
+
+            Assert.Equal("", a.Match("").RemainingText());
+        }
     }
 }
