@@ -35,5 +35,21 @@ namespace ClassRange
 
             Assert.Equal("", number.Match("12e2").RemainingText());
         }
+
+        [Fact]
+        public void CheckWithANumberWhoStartWithZeroAndIsFollowdByAnOtherNumber()
+        {
+            var number = new Number();
+
+            Assert.Equal("12", number.Match("012").RemainingText());
+        }
+
+        [Fact]
+        public void TestWithZecimalNumberWhenFirstNumberIsZero()
+        {
+            var number = new Number();
+
+            Assert.Equal("", number.Match("0.1").RemainingText());
+        }
     }
 }
