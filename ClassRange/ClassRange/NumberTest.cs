@@ -9,7 +9,7 @@ namespace ClassRange
         {
             var number = new Number();
 
-            Assert.Equal("ab", number.Match("123ab").RemainingText());
+            Assert.Equal(" ab", number.Match("123 ab").RemainingText());
         }
 
         [Fact]
@@ -21,11 +21,19 @@ namespace ClassRange
         }
 
         [Fact]
-        public void UseNumberClassOnExponentNumber()
+        public void UseNumberClassOnExponentNumberWithZecimalNumber()
         {
             var number = new Number();
 
             Assert.Equal("", number.Match("-12.33e+2").RemainingText());
+        }
+
+        [Fact]
+        public void UseNumberClassOnSimpleExponentNumber()
+        {
+            var number = new Number();
+
+            Assert.Equal("", number.Match("12e2").RemainingText());
         }
     }
 }
