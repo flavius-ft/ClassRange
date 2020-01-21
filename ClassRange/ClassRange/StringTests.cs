@@ -13,11 +13,11 @@ namespace ClassRange
         }
 
         [Fact]
-        public void TestStringClassWithcOMPLEXString()
+        public void TestStringClassWithComplexString()
         {
             var text = new String();
 
-            Assert.Equal("", text.Match("\"a\\u0015b\\u0010c\"").RemainingText());
+            Assert.Equal("", text.Match("\"a\\u0015b\\n c\"").RemainingText());
         }
     }
 }

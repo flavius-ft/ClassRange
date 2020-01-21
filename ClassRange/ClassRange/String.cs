@@ -8,11 +8,10 @@
         {
             var quotationMark = new Character('"');
             var controlChars = new Any("\\\"/bfnrt");
-            var charsRange = new Choice(
+            var validChar = new Choice(
                 new Range(' ', '!'),
                 new Range('#', '['),
-                new Range(']', '⌂'));
-            var chars = new OneOrMore(charsRange);
+                new Range(']', (char)ushort.MaxValue));
             var hex = new Choice(
                 new Range('0', '9'),
                 new Range('a', 'f'),
@@ -23,15 +22,15 @@
                 hex,
                 hex,
                 hex);
-            var backSlash = new Sequence(
+            var escapeChars = new Sequence(
                 new Character('\\'),
-                new Optional(controlChars),
-                new Optional(hexaDigits));
-            var stringChars = new Many(
                 new Choice(
-                    chars,
-                    backSlash));
-
+                new Optional(controlChars),
+                new Optional(hexaDigits)));
+            var jsonChar = new Choice(
+                validChar,
+                escapeChars);
+            var stringChars = new Many(jsonChar);
             pattern = new Sequence(
                 quotationMark,
                 stringChars,
