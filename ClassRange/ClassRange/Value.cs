@@ -18,9 +18,14 @@
 
             var whitespace = new Many(new Any(" \r\n\t"));
             var separator = new Sequence(whitespace, new Character(','), whitespace);
-            var array = new List(value, separator);
+            var array = new Sequence(
+                new Character('['),
+                new List(new Sequence(whitespace, value), new Character(',')),
+                new Character(']'));
 
-            pattern = ...;
+            value.Add(array);
+
+            pattern = value;
         }
 
         public IMatch Match(string text)
