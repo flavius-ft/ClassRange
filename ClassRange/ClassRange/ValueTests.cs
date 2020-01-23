@@ -13,6 +13,14 @@ namespace ClassRange
         }
 
         [Fact]
+        public void CheckAMixtArrayInClassValue()
+        {
+            var array = new Value();
+
+            Assert.Equal("", array.Match("[ 1, \"a\", true]").RemainingText());
+        }
+
+        [Fact]
         public void CheckAnArrayWithWhiteSpacesInClassValue()
         {
             var array = new Value();
@@ -26,6 +34,30 @@ namespace ClassRange
             var array = new Value();
 
             Assert.Equal("", array.Match("[ \"a\", \"b\", \"c\"]").RemainingText());
+        }
+
+        [Fact]
+        public void CheckAStringInClassValue()
+        {
+            var strings = new Value();
+
+            Assert.Equal("", strings.Match("\"this is a string\"").RemainingText());
+        }
+
+        [Fact]
+        public void CheckANumberInClassValue()
+        {
+            var number = new Value();
+
+            Assert.Equal("", number.Match("-12.23e+5").RemainingText());
+        }
+
+        [Fact]
+        public void CheckATextInClassValue()
+        {
+            var text = new Value();
+
+            Assert.Equal("", text.Match("true").RemainingText());
         }
     }
 }
