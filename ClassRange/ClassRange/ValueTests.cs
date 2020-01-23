@@ -59,5 +59,13 @@ namespace ClassRange
 
             Assert.Equal("", text.Match("true").RemainingText());
         }
+
+        [Fact]
+        public void CheckAnObjectInClassValue()
+        {
+            var objectV = new Value();
+
+            Assert.Equal("", objectV.Match("{\"latitude\": -78.75, \"longitude\": 20.4}").RemainingText());
+        }
     }
 }

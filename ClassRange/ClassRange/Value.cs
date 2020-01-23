@@ -25,6 +25,20 @@
 
             value.Add(array);
 
+            var element = new Sequence(
+                    whitespace,
+                    new String(),
+                    whitespace,
+                    new Character(':'),
+                    whitespace,
+                    value);
+            var objectValue = new Sequence(
+                new Character('{'),
+                new List(new Sequence(whitespace, element), new Character(',')),
+                new Character('}'));
+
+            value.Add(objectValue);
+
             pattern = value;
         }
 
