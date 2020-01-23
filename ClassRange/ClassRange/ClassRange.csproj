@@ -11,6 +11,7 @@
 
   <PropertyGroup>
     <CodeAnalysisRuleSet>juniormind.ruleset</CodeAnalysisRuleSet>
+    <StartupObject>ClassRange.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
