@@ -67,5 +67,29 @@ namespace ClassRange
 
             Assert.Equal("", objectV.Match("{\"latitude\": -78.75, \"longitude\": 20.4}").RemainingText());
         }
+
+        [Fact]
+        public void CheckAnObjectWithMultipleObjectsInClassValue()
+        {
+            var text = new Value();
+
+            Assert.Equal("", text.Match("{\"m\": {\r\n \"i\": \"e\",\r\n\"a\": \"i\"}}").RemainingText());
+        }
+
+        [Fact]
+        public void CheckAnObjectWithAnArrayOfObjectsInClassValue()
+        {
+            var text = new Value();
+
+            Assert.Equal("", text.Match("{\"m\": {\r\n \"d\": \"i\",\r\n\"a\": \"i\",\r\n  \"p\": {\r\n    \"m\": [{\"a\": \"N\", \"o\": \"C()\"},{\"a\": \"O\", \"o\": \"O\"}]}}}").RemainingText());
+        }
+
+        [Fact]
+        public void CheckAnObjectWithAnArrayInClassValue()
+        {
+            var text = new Value();
+
+            Assert.Equal("", text.Match("{\"m\": [{ \"v\": \"N\", \"o\": \"C()\"}, { \"v\": \"O\", \"o\": \"D()\"},{ \"v\": \"C\", \"o\": \"D()\"}]}").RemainingText());
+        }
     }
 }

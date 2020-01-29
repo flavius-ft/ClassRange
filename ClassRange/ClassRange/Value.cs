@@ -18,9 +18,10 @@
 
             var whitespace = new Many(new Any(" \r\n\t"));
             var separator = new Sequence(whitespace, new Character(','), whitespace);
+            var arrElement = new Sequence(whitespace, value, whitespace);
             var array = new Sequence(
                 new Character('['),
-                new List(new Sequence(whitespace, value), new Character(',')),
+                new List(arrElement, separator),
                 new Character(']'));
 
             value.Add(array);
@@ -31,10 +32,11 @@
                     whitespace,
                     new Character(':'),
                     whitespace,
-                    value);
+                    value,
+                    whitespace);
             var objectValue = new Sequence(
                 new Character('{'),
-                new List(new Sequence(whitespace, element), new Character(',')),
+                new List(element, new Character(',')),
                 new Character('}'));
 
             value.Add(objectValue);
